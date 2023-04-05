@@ -1,0 +1,11 @@
+E:\NetProject\PublicRelations\PublicRelations\bin\Debug\PublicRelations.exe.config
+E:\NetProject\PublicRelations\PublicRelations\bin\Debug\PublicRelations.exe
+E:\NetProject\PublicRelations\PublicRelations\bin\Debug\PublicRelations.pdb
+E:\NetProject\PublicRelations\PublicRelations\obj\Debug\PublicRelations.csproj.AssemblyReference.cache
+E:\NetProject\PublicRelations\PublicRelations\obj\Debug\PublicRelations.csproj.SuggestedBindingRedirects.cache
+E:\NetProject\PublicRelations\PublicRelations\obj\Debug\PublicRelations.PRMDI.resources
+E:\NetProject\PublicRelations\PublicRelations\obj\Debug\PublicRelations.Properties.Resources.resources
+E:\NetProject\PublicRelations\PublicRelations\obj\Debug\PublicRelations.csproj.GenerateResource.cache
+E:\NetProject\PublicRelations\PublicRelations\obj\Debug\PublicRelations.csproj.CoreCompileInputs.cache
+E:\NetProject\PublicRelations\PublicRelations\obj\Debug\PublicRelations.exe
+E:\NetProject\PublicRelations\PublicRelations\obj\Debug\PublicRelations.pdb
