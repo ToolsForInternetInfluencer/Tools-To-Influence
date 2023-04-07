@@ -82,6 +82,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Messenger\Social Media\Search.cs" />
     <Compile Include="Messenger\Social Media\YoutubeUpload.cs" />
     <Compile Include="PRMDI.cs">
       <SubType>Form</SubType>
@@ -103,6 +104,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Messenger\client_secrets.json.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
