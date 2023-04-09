@@ -15,10 +15,11 @@ using Google.Apis.YouTube.v3.Data;
 
 namespace PublicRelations.Messenger.Social_Media
 {
-    internal class Search
+    public class Search
     {
+        
         [STAThread]
-        static void Main(string[] args)
+       public static void searching()
         {
             Console.WriteLine("YouTube Data API: Search");
             Console.WriteLine("========================");
@@ -43,7 +44,7 @@ namespace PublicRelations.Messenger.Social_Media
         {
             var youtubeService = new YouTubeService(new BaseClientService.Initializer()
             {
-                ApiKey = "REPLACE_ME",
+                ApiKey = "",
                 ApplicationName = this.GetType().ToString()
             });
 

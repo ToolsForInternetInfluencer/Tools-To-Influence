@@ -26,7 +26,7 @@ namespace PublicRelations.Messenger.Social_Media
         internal class UploadVideo
         {
             [STAThread]
-            static void Main(string[] args)
+            static void uplaoding()
             {
                 Console.WriteLine("YouTube Data API: Upload Video");
                 Console.WriteLine("==============================");
