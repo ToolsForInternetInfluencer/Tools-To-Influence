@@ -82,8 +82,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Messenger\Social Media\Search.cs" />
-    <Compile Include="Messenger\Social Media\YoutubeUpload.cs" />
     <Compile Include="PRMDI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,7 +118,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Example\" />
+    <Folder Include="Messenger\Social Media\" />
     <Folder Include="SocialMedia\" />
   </ItemGroup>
   <ItemGroup>
