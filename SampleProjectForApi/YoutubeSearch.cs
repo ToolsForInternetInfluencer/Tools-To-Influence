@@ -24,7 +24,7 @@ namespace SampleProjectForApi
     internal class YoutubeSearch
     {
         [STAThread]
-        static void Main(string[] args)
+        static void Test(string[] args)
         {
             Console.WriteLine("YouTube Data API: Search");
             Console.WriteLine("========================");
