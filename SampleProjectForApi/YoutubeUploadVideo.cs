@@ -16,7 +16,7 @@ namespace SampleProjectForApi
     internal class YoutubeUploadVideo
     {
         [STAThread]
-        static void Main(string[] args)
+        static void YoutubeUploadVideoMain(string[] args)
         {
             Console.WriteLine("YouTube Data API: Upload Video");
             Console.WriteLine("==============================");
