@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="YoutubeMyUploads.cs" />
     <Compile Include="YoutubePlaylistUpdates.cs" />
     <Compile Include="YoutubeSearch.cs" />
     <Compile Include="YoutubeUploadVideo.cs" />

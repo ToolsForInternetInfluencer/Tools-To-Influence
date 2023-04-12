@@ -16,7 +16,7 @@ namespace SampleProjectForApi
     internal class YoutubePlaylistUpdates
     {
         [STAThread]
-        static void Main(string[] args)
+        static void YoutubePlaylistUpdatesMain(string[] args)
         {
             Console.WriteLine("YouTube Data API: Playlist Updates");
             Console.WriteLine("==================================");
