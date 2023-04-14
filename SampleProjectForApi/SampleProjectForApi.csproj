@@ -64,20 +64,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="YoutubeSamples\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="YoutubeMyUploads.cs" />
-    <Compile Include="YoutubePlaylistUpdates.cs" />
-    <Compile Include="YoutubeSearch.cs" />
-    <Compile Include="YoutubeUploadVideo.cs" />
+    <Compile Include="YoutubeSamples\YoutubeMyUploads.cs" />
+    <Compile Include="YoutubeSamples\YoutubePlaylistUpdates.cs" />
+    <Compile Include="YoutubeSamples\YoutubeSearch.cs" />
+    <Compile Include="YoutubeSamples\YoutubeUploadVideo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="client_secrets.json.json" />
-    <None Include="packages.config" />
+    <None Include="YoutubeSamples\App.config" />
+    <None Include="YoutubeSamples\client_secrets.json.json" />
+    <None Include="YoutubeSamples\packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="1.mp4" />
+    <Content Include="YoutubeSamples\1.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="YoutubeSamples\Postman\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
