@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PublicRelations.SocialMedia.Youtube
 {
-    public partial class UploadVideo : Form
+    public partial class MyYoutubeUploadVideo : Form
     {
-        public UploadVideo()
+        public MyYoutubeUploadVideo()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace PublicRelations.SocialMedia.Youtube
 {
-    partial class UploadVideo
+    partial class MyYoutubeUploadVideo
     {
         /// <summary>
         /// Required designer variable.
