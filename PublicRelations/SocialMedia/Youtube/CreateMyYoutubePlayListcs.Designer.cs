@@ -1,6 +1,6 @@
 ﻿namespace PublicRelations.SocialMedia.Youtube
 {
-    partial class MyYoutubeUploadVideo
+    partial class CreateMyYoutubePlayListcs
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.cbPrivacyStatus = new System.Windows.Forms.ComboBox();
-            this.tbTags = new System.Windows.Forms.TextBox();
+            this.tbPrivacyStatus = new System.Windows.Forms.TextBox();
             this.tbDesc = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -38,20 +38,29 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tbTitle = new System.Windows.Forms.TextBox();
-            this.cbCategory = new System.Windows.Forms.ComboBox();
-            this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.tbResourceKind = new System.Windows.Forms.TextBox();
+            this.tbResourceVideoId = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Magneto", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(128, 23);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(513, 41);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Create My Youtube Playlist";
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.cbPrivacyStatus, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.tbTags, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.tbPrivacyStatus, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.tbDesc, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
@@ -59,8 +68,9 @@
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.tbTitle, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.cbCategory, 1, 3);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(44, 48);
+            this.tableLayoutPanel1.Controls.Add(this.tbResourceKind, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.tbResourceVideoId, 1, 4);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(82, 64);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -68,23 +78,16 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(636, 269);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanel1.TabIndex = 6;
             // 
-            // cbPrivacyStatus
+            // tbPrivacyStatus
             // 
-            this.cbPrivacyStatus.FormattingEnabled = true;
-            this.cbPrivacyStatus.Location = new System.Drawing.Point(321, 215);
-            this.cbPrivacyStatus.Name = "cbPrivacyStatus";
-            this.cbPrivacyStatus.Size = new System.Drawing.Size(121, 24);
-            this.cbPrivacyStatus.TabIndex = 9;
-            // 
-            // tbTags
-            // 
-            this.tbTags.Location = new System.Drawing.Point(321, 109);
-            this.tbTags.Name = "tbTags";
-            this.tbTags.Size = new System.Drawing.Size(216, 22);
-            this.tbTags.TabIndex = 7;
+            this.tbPrivacyStatus.Location = new System.Drawing.Point(321, 109);
+            this.tbPrivacyStatus.Name = "tbPrivacyStatus";
+            this.tbPrivacyStatus.Size = new System.Drawing.Size(216, 22);
+            this.tbPrivacyStatus.TabIndex = 7;
             // 
             // tbDesc
             // 
@@ -99,9 +102,9 @@
             this.label5.Font = new System.Drawing.Font("Magneto", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(3, 212);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(177, 25);
+            this.label5.Size = new System.Drawing.Size(206, 25);
             this.label5.TabIndex = 4;
-            this.label5.Text = "Privacy Status";
+            this.label5.Text = "Resource VideoId";
             // 
             // label1
             // 
@@ -129,9 +132,9 @@
             this.label3.Font = new System.Drawing.Font("Magneto", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(3, 106);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 25);
+            this.label3.Size = new System.Drawing.Size(170, 25);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Tags";
+            this.label3.Text = "Privacy status";
             // 
             // label4
             // 
@@ -139,9 +142,9 @@
             this.label4.Font = new System.Drawing.Font("Magneto", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(3, 159);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(110, 25);
+            this.label4.Size = new System.Drawing.Size(170, 25);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Category";
+            this.label4.Text = "Resource Kind";
             // 
             // tbTitle
             // 
@@ -150,56 +153,51 @@
             this.tbTitle.Size = new System.Drawing.Size(216, 22);
             this.tbTitle.TabIndex = 5;
             // 
-            // cbCategory
+            // btnCancel
             // 
-            this.cbCategory.FormattingEnabled = true;
-            this.cbCategory.Location = new System.Drawing.Point(321, 162);
-            this.cbCategory.Name = "cbCategory";
-            this.cbCategory.Size = new System.Drawing.Size(121, 24);
-            this.cbCategory.TabIndex = 8;
+            this.btnCancel.Font = new System.Drawing.Font("Magneto", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Location = new System.Drawing.Point(538, 339);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(180, 47);
+            this.btnCancel.TabIndex = 8;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Magneto", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(44, 323);
+            this.btnSave.Location = new System.Drawing.Point(82, 339);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(180, 47);
-            this.btnSave.TabIndex = 1;
+            this.btnSave.TabIndex = 7;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // btnCancel
+            // tbResourceKind
             // 
-            this.btnCancel.Font = new System.Drawing.Font("Magneto", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(500, 323);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(180, 47);
-            this.btnCancel.TabIndex = 2;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.tbResourceKind.Location = new System.Drawing.Point(321, 162);
+            this.tbResourceKind.Name = "tbResourceKind";
+            this.tbResourceKind.Size = new System.Drawing.Size(216, 22);
+            this.tbResourceKind.TabIndex = 10;
             // 
-            // label6
+            // tbResourceVideoId
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Magneto", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(141, 4);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(400, 41);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "Upload Youtube Video";
+            this.tbResourceVideoId.Location = new System.Drawing.Point(321, 215);
+            this.tbResourceVideoId.Name = "tbResourceVideoId";
+            this.tbResourceVideoId.Size = new System.Drawing.Size(216, 22);
+            this.tbResourceVideoId.TabIndex = 11;
             // 
-            // MyYoutubeUploadVideo
+            // CreateMyYoutubePlayListcs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "MyYoutubeUploadVideo";
-            this.Text = "UploadVideo";
+            this.Controls.Add(this.label6);
+            this.Name = "CreateMyYoutubePlayListcs";
+            this.Text = "Create My Youtube Playlist";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -209,19 +207,19 @@
 
         #endregion
 
+        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TextBox tbPrivacyStatus;
+        private System.Windows.Forms.TextBox tbDesc;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbTitle;
-        private System.Windows.Forms.TextBox tbTags;
-        private System.Windows.Forms.TextBox tbDesc;
-        private System.Windows.Forms.ComboBox cbCategory;
-        private System.Windows.Forms.ComboBox cbPrivacyStatus;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.TextBox tbResourceKind;
+        private System.Windows.Forms.TextBox tbResourceVideoId;
     }
 }
