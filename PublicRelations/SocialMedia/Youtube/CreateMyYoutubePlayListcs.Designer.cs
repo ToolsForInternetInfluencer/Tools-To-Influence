@@ -38,10 +38,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tbTitle = new System.Windows.Forms.TextBox();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
             this.tbResourceKind = new System.Windows.Forms.TextBox();
             this.tbResourceVideoId = new System.Windows.Forms.TextBox();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -153,6 +153,20 @@
             this.tbTitle.Size = new System.Drawing.Size(216, 22);
             this.tbTitle.TabIndex = 5;
             // 
+            // tbResourceKind
+            // 
+            this.tbResourceKind.Location = new System.Drawing.Point(321, 162);
+            this.tbResourceKind.Name = "tbResourceKind";
+            this.tbResourceKind.Size = new System.Drawing.Size(216, 22);
+            this.tbResourceKind.TabIndex = 10;
+            // 
+            // tbResourceVideoId
+            // 
+            this.tbResourceVideoId.Location = new System.Drawing.Point(321, 215);
+            this.tbResourceVideoId.Name = "tbResourceVideoId";
+            this.tbResourceVideoId.Size = new System.Drawing.Size(216, 22);
+            this.tbResourceVideoId.TabIndex = 11;
+            // 
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Magneto", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -172,20 +186,7 @@
             this.btnSave.TabIndex = 7;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
-            // 
-            // tbResourceKind
-            // 
-            this.tbResourceKind.Location = new System.Drawing.Point(321, 162);
-            this.tbResourceKind.Name = "tbResourceKind";
-            this.tbResourceKind.Size = new System.Drawing.Size(216, 22);
-            this.tbResourceKind.TabIndex = 10;
-            // 
-            // tbResourceVideoId
-            // 
-            this.tbResourceVideoId.Location = new System.Drawing.Point(321, 215);
-            this.tbResourceVideoId.Name = "tbResourceVideoId";
-            this.tbResourceVideoId.Size = new System.Drawing.Size(216, 22);
-            this.tbResourceVideoId.TabIndex = 11;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // CreateMyYoutubePlayListcs
             // 
