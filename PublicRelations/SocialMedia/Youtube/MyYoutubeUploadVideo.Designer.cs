@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label7 = new System.Windows.Forms.Label();
             this.cbPrivacyStatus = new System.Windows.Forms.ComboBox();
             this.tbTags = new System.Windows.Forms.TextBox();
             this.tbDesc = new System.Windows.Forms.TextBox();
@@ -39,10 +41,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tbTitle = new System.Windows.Forms.TextBox();
             this.cbCategory = new System.Windows.Forms.ComboBox();
+            this.btnBrowse = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.errUploadYoutubeVideo = new System.Windows.Forms.ErrorProvider(this.components);
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errUploadYoutubeVideo)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -50,6 +55,7 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.label7, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.cbPrivacyStatus, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.tbTags, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.tbDesc, 1, 1);
@@ -60,35 +66,51 @@
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.tbTitle, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.cbCategory, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.btnBrowse, 1, 5);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(44, 48);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 5;
+            this.tableLayoutPanel1.RowCount = 6;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(636, 269);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(636, 306);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Magneto", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(3, 260);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(110, 25);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Category";
             // 
             // cbPrivacyStatus
             // 
             this.cbPrivacyStatus.FormattingEnabled = true;
-            this.cbPrivacyStatus.Location = new System.Drawing.Point(321, 215);
+            this.cbPrivacyStatus.Items.AddRange(new object[] {
+            "private",
+            "public",
+            "unlisted"});
+            this.cbPrivacyStatus.Location = new System.Drawing.Point(321, 211);
             this.cbPrivacyStatus.Name = "cbPrivacyStatus";
             this.cbPrivacyStatus.Size = new System.Drawing.Size(121, 24);
             this.cbPrivacyStatus.TabIndex = 9;
             // 
             // tbTags
             // 
-            this.tbTags.Location = new System.Drawing.Point(321, 109);
+            this.tbTags.Location = new System.Drawing.Point(321, 107);
             this.tbTags.Name = "tbTags";
             this.tbTags.Size = new System.Drawing.Size(216, 22);
             this.tbTags.TabIndex = 7;
             // 
             // tbDesc
             // 
-            this.tbDesc.Location = new System.Drawing.Point(321, 56);
+            this.tbDesc.Location = new System.Drawing.Point(321, 55);
             this.tbDesc.Name = "tbDesc";
             this.tbDesc.Size = new System.Drawing.Size(216, 22);
             this.tbDesc.TabIndex = 6;
@@ -97,7 +119,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Magneto", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 212);
+            this.label5.Location = new System.Drawing.Point(3, 208);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(177, 25);
             this.label5.TabIndex = 4;
@@ -117,7 +139,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Magneto", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 53);
+            this.label2.Location = new System.Drawing.Point(3, 52);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(137, 25);
             this.label2.TabIndex = 1;
@@ -127,7 +149,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Magneto", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 106);
+            this.label3.Location = new System.Drawing.Point(3, 104);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 25);
             this.label3.TabIndex = 2;
@@ -137,7 +159,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Magneto", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 159);
+            this.label4.Location = new System.Drawing.Point(3, 156);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(110, 25);
             this.label4.TabIndex = 3;
@@ -149,19 +171,31 @@
             this.tbTitle.Name = "tbTitle";
             this.tbTitle.Size = new System.Drawing.Size(216, 22);
             this.tbTitle.TabIndex = 5;
+            this.tbTitle.Leave += new System.EventHandler(this.txtInputValidation);
             // 
             // cbCategory
             // 
             this.cbCategory.FormattingEnabled = true;
-            this.cbCategory.Location = new System.Drawing.Point(321, 162);
+            this.cbCategory.Location = new System.Drawing.Point(321, 159);
             this.cbCategory.Name = "cbCategory";
             this.cbCategory.Size = new System.Drawing.Size(121, 24);
             this.cbCategory.TabIndex = 8;
             // 
+            // btnBrowse
+            // 
+            this.btnBrowse.Font = new System.Drawing.Font("Magneto", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBrowse.Location = new System.Drawing.Point(321, 263);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.Size = new System.Drawing.Size(176, 40);
+            this.btnBrowse.TabIndex = 11;
+            this.btnBrowse.Text = "Browse File";
+            this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
+            // 
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Magneto", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(44, 323);
+            this.btnSave.Location = new System.Drawing.Point(44, 371);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(180, 47);
             this.btnSave.TabIndex = 1;
@@ -172,7 +206,7 @@
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Magneto", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(500, 323);
+            this.btnCancel.Location = new System.Drawing.Point(482, 371);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(180, 47);
             this.btnCancel.TabIndex = 2;
@@ -189,6 +223,10 @@
             this.label6.TabIndex = 3;
             this.label6.Text = "Upload Youtube Video";
             // 
+            // errUploadYoutubeVideo
+            // 
+            this.errUploadYoutubeVideo.ContainerControl = this;
+            // 
             // MyYoutubeUploadVideo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -200,8 +238,10 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "MyYoutubeUploadVideo";
             this.Text = "UploadVideo";
+            this.Load += new System.EventHandler(this.MyYoutubeUploadVideo_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errUploadYoutubeVideo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,5 +263,8 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnBrowse;
+        private System.Windows.Forms.ErrorProvider errUploadYoutubeVideo;
     }
 }

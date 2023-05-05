@@ -31,6 +31,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.socialMediaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.youtubeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uplaodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.faceBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.redditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.weChatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,8 +43,6 @@
             this.tikTokToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.discordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.snapchatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.uplaodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,6 +78,20 @@
             this.youtubeToolStripMenuItem.Name = "youtubeToolStripMenuItem";
             this.youtubeToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.youtubeToolStripMenuItem.Text = "Youtube";
+            // 
+            // searchToolStripMenuItem
+            // 
+            this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.searchToolStripMenuItem.Text = "Search";
+            this.searchToolStripMenuItem.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
+            // 
+            // uplaodToolStripMenuItem
+            // 
+            this.uplaodToolStripMenuItem.Name = "uplaodToolStripMenuItem";
+            this.uplaodToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.uplaodToolStripMenuItem.Text = "Uplaod";
+            this.uplaodToolStripMenuItem.Click += new System.EventHandler(this.uplaodToolStripMenuItem_Click);
             // 
             // faceBookToolStripMenuItem
             // 
@@ -118,45 +132,32 @@
             // whatsAppToolStripMenuItem
             // 
             this.whatsAppToolStripMenuItem.Name = "whatsAppToolStripMenuItem";
-            this.whatsAppToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
+            this.whatsAppToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.whatsAppToolStripMenuItem.Text = "Whats App";
             // 
             // telegramToolStripMenuItem
             // 
             this.telegramToolStripMenuItem.Name = "telegramToolStripMenuItem";
-            this.telegramToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
+            this.telegramToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.telegramToolStripMenuItem.Text = "Telegram";
             // 
             // tikTokToolStripMenuItem
             // 
             this.tikTokToolStripMenuItem.Name = "tikTokToolStripMenuItem";
-            this.tikTokToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
+            this.tikTokToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.tikTokToolStripMenuItem.Text = "TikTok";
             // 
             // discordToolStripMenuItem
             // 
             this.discordToolStripMenuItem.Name = "discordToolStripMenuItem";
-            this.discordToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
+            this.discordToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.discordToolStripMenuItem.Text = "Discord";
             // 
             // snapchatToolStripMenuItem
             // 
             this.snapchatToolStripMenuItem.Name = "snapchatToolStripMenuItem";
-            this.snapchatToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
+            this.snapchatToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.snapchatToolStripMenuItem.Text = "Snapchat";
-            // 
-            // searchToolStripMenuItem
-            // 
-            this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.searchToolStripMenuItem.Text = "Search";
-            this.searchToolStripMenuItem.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
-            // 
-            // uplaodToolStripMenuItem
-            // 
-            this.uplaodToolStripMenuItem.Name = "uplaodToolStripMenuItem";
-            this.uplaodToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.uplaodToolStripMenuItem.Text = "Uplaod";
             // 
             // PRMDI
             // 

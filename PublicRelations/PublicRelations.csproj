@@ -114,6 +114,7 @@
     <Compile Include="SocialMedia\Youtube\MyYoutubeUploadVideo.Designer.cs">
       <DependentUpon>MyYoutubeUploadVideo.cs</DependentUpon>
     </Compile>
+    <Compile Include="SocialMedia\Youtube\Utility\YoutubeCategory.cs" />
     <EmbeddedResource Include="PRMDI.resx">
       <DependentUpon>PRMDI.cs</DependentUpon>
     </EmbeddedResource>

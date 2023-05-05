@@ -1,4 +1,5 @@
-﻿using PublicRelations.Messenger.Social_Media;
+﻿
+using PublicRelations.SocialMedia.Youtube;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,6 +24,20 @@ namespace PublicRelations
          
            // Search.Searching();
             
+        }
+
+        private void uplaodToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var OpenForm = Application.OpenForms.Cast<Form>();
+            var isOpen = OpenForm.Any(q => q.Name == "MyYoutubeUploadVideo");
+
+            if (!isOpen)
+            {
+                MyYoutubeUploadVideo youtubeUplaod = new MyYoutubeUploadVideo();
+                youtubeUplaod.MdiParent = this;
+                youtubeUplaod.Show();
+            }
+
         }
     }
 }
