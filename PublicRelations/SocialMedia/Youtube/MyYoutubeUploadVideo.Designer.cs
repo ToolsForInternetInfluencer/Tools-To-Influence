@@ -46,6 +46,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.errUploadYoutubeVideo = new System.Windows.Forms.ErrorProvider(this.components);
+            this.uploadYoutubeStatus = new System.Windows.Forms.StatusStrip();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errUploadYoutubeVideo)).BeginInit();
             this.SuspendLayout();
@@ -227,11 +228,20 @@
             // 
             this.errUploadYoutubeVideo.ContainerControl = this;
             // 
+            // uploadYoutubeStatus
+            // 
+            this.uploadYoutubeStatus.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.uploadYoutubeStatus.Location = new System.Drawing.Point(0, 426);
+            this.uploadYoutubeStatus.Name = "uploadYoutubeStatus";
+            this.uploadYoutubeStatus.Size = new System.Drawing.Size(800, 24);
+            this.uploadYoutubeStatus.TabIndex = 4;
+            // 
             // MyYoutubeUploadVideo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.uploadYoutubeStatus);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
@@ -266,5 +276,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnBrowse;
         private System.Windows.Forms.ErrorProvider errUploadYoutubeVideo;
+        private System.Windows.Forms.StatusStrip uploadYoutubeStatus;
     }
 }

@@ -43,3 +43,7 @@ M:\PR_TOOL_PROJECT\PublicRelations\obj\Debug\PublicRelations.SocialMedia.Youtube
 M:\PR_TOOL_PROJECT\PublicRelations\obj\Debug\PublicRelations.SocialMedia.Youtube.CreateMyYoutubePlayListcs.resources
 M:\PR_TOOL_PROJECT\PublicRelations\obj\Debug\PublicRelations.SocialMedia.Youtube.MyYoutubeUploaded.resources
 M:\PR_TOOL_PROJECT\PublicRelations\obj\Debug\PublicRelations.SocialMedia.Youtube.MyYoutubeUploadVideo.resources
+M:\PR_TOOL_PROJECT\PublicRelations\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+M:\PR_TOOL_PROJECT\PublicRelations\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+M:\PR_TOOL_PROJECT\PublicRelations\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+M:\PR_TOOL_PROJECT\PublicRelations\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml

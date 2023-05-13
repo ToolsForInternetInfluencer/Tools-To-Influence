@@ -21,22 +21,46 @@ using Google.Apis.YouTube.v3;
 using Google.Apis.YouTube.v3.Data;
 using PublicRelations.SocialMedia.Youtube.Utility;
 using System.Net.NetworkInformation;
+using System.Data.SqlClient;
 
 namespace PublicRelations.SocialMedia.Youtube
 {
     public partial class MyYoutubeUploadVideo : Form
     {
+        bool isErrorOccured = false;
+        string connetionString;
+        SqlConnection cnn;
+        string settingJsonPath = "";
         public MyYoutubeUploadVideo()
         {
             InitializeComponent();
+            connetionString = @"Server=.\SqlExpress01; Database= SocialMedia; Integrated Security=True;";
+            cnn = new SqlConnection(connetionString);
+            SqlCommand command = new SqlCommand("Select * from SocialSetting where SettingName=@SettingName", cnn);
+            command.Parameters.AddWithValue("@SettingName", "YoutubeJsonPath");
+            cnn.Open();
+            // int result = command.ExecuteNonQuery();
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    // Console.WriteLine(String.Format("{0}", reader["SettingName"]));
+                    settingJsonPath = String.Format("{0}", reader["SettingValue"]);
+                }
+            }
+
+            cnn.Close();
         }
         String filePathData = "";
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
             {
+                if (isErrorOccured) {
+                    return;
+                }
                 if (String.IsNullOrEmpty(filePathData)) {
-                    
+                    isErrorOccured = true;
                     errUploadYoutubeVideo.SetError(btnBrowse, "Description should not be left blank!");
                     return;
                 }
@@ -46,17 +70,18 @@ namespace PublicRelations.SocialMedia.Youtube
             {
                 foreach (var error  in ex.InnerExceptions)
                 {
-                    Console.WriteLine("Error: " + error.Message);
+                    uploadYoutubeStatus.Text = "Error " + error.Message;
                 }
             }
         }
         private async Task Run()
         {
             UserCredential credential;
-            String ClinetJsonPath = "M:\\PR_TOOL_PROJECT\\SampleProjectForApi\\YoutubeSamples\\client_secrets.json.json";
+            //get from database
+            //String ClinetJsonPath = "M:\\PR_TOOL_PROJECT\\SampleProjectForApi\\YoutubeSamples\\client_secrets.json.json";
             Console.WriteLine(ClinetJsonPath);
 
-            using (var stream = new FileStream(ClinetJsonPath, FileMode.Open, FileAccess.Read))
+            using (var stream = new FileStream(settingJsonPath, FileMode.Open, FileAccess.Read))
             {
                 credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
                     GoogleClientSecrets.FromStream(stream).Secrets,
@@ -76,6 +101,7 @@ namespace PublicRelations.SocialMedia.Youtube
 
             var video = new Video();
             video.Snippet = new VideoSnippet();
+            //save this infomration  in database
             video.Snippet.Title =  tbTitle.Text;
             video.Snippet.Description = tbDesc.Text;
             video.Snippet.Tags = new string[] { "tag1", "tag2" };
@@ -99,18 +125,19 @@ namespace PublicRelations.SocialMedia.Youtube
             switch (progress.Status)
             {
                 case UploadStatus.Uploading:
-                    Console.WriteLine("{0} bytes sent.", progress.BytesSent);
+                    uploadYoutubeStatus.Text = " bytes sent." + progress.BytesSent;
                     break;
 
                 case UploadStatus.Failed:
-                    Console.WriteLine("An error prevented the upload from completing.\n{0}", progress.Exception);
+                    uploadYoutubeStatus.Text = "An error prevented the upload from completing.\n" + progress.Exception;
                     break;
             }
         }
 
         void videosInsertRequest_ResponseReceived(Video video)
         {
-            Console.WriteLine("Video id '{0}' was successfully uploaded.", video.Id);
+             
+            uploadYoutubeStatus.Text = "Video  was successfully uploaded." + video.Id.ToString(); 
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)
@@ -141,16 +168,45 @@ namespace PublicRelations.SocialMedia.Youtube
                 switch (textBoxSender)
                 {
                     case "tbTitle":
-                    errUploadYoutubeVideo.SetError(((TextBox)sender), "Title should not be left blank!");
-                    tbTitle.Focus();
+                    if (String.IsNullOrEmpty(((TextBox)sender).Text))
+                    {
+                        errUploadYoutubeVideo.SetError(((TextBox)sender), "Title should not be left blank!");
+                        isErrorOccured = true;
+                        tbTitle.Focus();
+                    }
+                    else {
+                        errUploadYoutubeVideo.Clear();
+                        isErrorOccured = false;
+                    }
+                   
                      break;
                     case "tbDesc":
-                    errUploadYoutubeVideo.SetError(((TextBox)sender), "Description should not be left blank!");
-                    tbDesc.Focus();
+
+                    if (String.IsNullOrEmpty(((TextBox)sender).Text))
+                    {
+                        errUploadYoutubeVideo.SetError(((TextBox)sender), "Description should not be left blank!");
+                        isErrorOccured = true;
+                        tbDesc.Focus();
+                    }
+                    else {
+                        errUploadYoutubeVideo.Clear();
+                        isErrorOccured = false;
+                    }
                         break;
                     case "tbTags":
-                    tbTags.Focus();
-                    errUploadYoutubeVideo.SetError(((TextBox)sender), "Tags should not be left blank!");
+
+                    if (String.IsNullOrEmpty(((TextBox)sender).Text))
+                    {
+                        tbTags.Focus();
+                        isErrorOccured = true;
+                        errUploadYoutubeVideo.SetError(((TextBox)sender), "Tags should not be left blank!");
+                    }
+                    else
+                    {
+                        errUploadYoutubeVideo.Clear();
+                        isErrorOccured = false;
+                    }
+
                     break;
                 }
             

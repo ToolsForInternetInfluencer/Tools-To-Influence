@@ -43,6 +43,7 @@
             this.tikTokToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.discordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.snapchatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,45 +77,45 @@
             this.searchToolStripMenuItem,
             this.uplaodToolStripMenuItem});
             this.youtubeToolStripMenuItem.Name = "youtubeToolStripMenuItem";
-            this.youtubeToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.youtubeToolStripMenuItem.Size = new System.Drawing.Size(155, 26);
             this.youtubeToolStripMenuItem.Text = "Youtube";
             // 
             // searchToolStripMenuItem
             // 
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(141, 26);
             this.searchToolStripMenuItem.Text = "Search";
             this.searchToolStripMenuItem.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
             // 
             // uplaodToolStripMenuItem
             // 
             this.uplaodToolStripMenuItem.Name = "uplaodToolStripMenuItem";
-            this.uplaodToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.uplaodToolStripMenuItem.Size = new System.Drawing.Size(141, 26);
             this.uplaodToolStripMenuItem.Text = "Uplaod";
             this.uplaodToolStripMenuItem.Click += new System.EventHandler(this.uplaodToolStripMenuItem_Click);
             // 
             // faceBookToolStripMenuItem
             // 
             this.faceBookToolStripMenuItem.Name = "faceBookToolStripMenuItem";
-            this.faceBookToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.faceBookToolStripMenuItem.Size = new System.Drawing.Size(155, 26);
             this.faceBookToolStripMenuItem.Text = "FaceBook";
             // 
             // redditToolStripMenuItem
             // 
             this.redditToolStripMenuItem.Name = "redditToolStripMenuItem";
-            this.redditToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.redditToolStripMenuItem.Size = new System.Drawing.Size(155, 26);
             this.redditToolStripMenuItem.Text = "Reddit";
             // 
             // weChatToolStripMenuItem
             // 
             this.weChatToolStripMenuItem.Name = "weChatToolStripMenuItem";
-            this.weChatToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.weChatToolStripMenuItem.Size = new System.Drawing.Size(155, 26);
             this.weChatToolStripMenuItem.Text = "WeChat";
             // 
             // pinTestToolStripMenuItem
             // 
             this.pinTestToolStripMenuItem.Name = "pinTestToolStripMenuItem";
-            this.pinTestToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.pinTestToolStripMenuItem.Size = new System.Drawing.Size(155, 26);
             this.pinTestToolStripMenuItem.Text = "PinTest";
             // 
             // messangerToolStripMenuItem
@@ -132,38 +133,47 @@
             // whatsAppToolStripMenuItem
             // 
             this.whatsAppToolStripMenuItem.Name = "whatsAppToolStripMenuItem";
-            this.whatsAppToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.whatsAppToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
             this.whatsAppToolStripMenuItem.Text = "Whats App";
             // 
             // telegramToolStripMenuItem
             // 
             this.telegramToolStripMenuItem.Name = "telegramToolStripMenuItem";
-            this.telegramToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.telegramToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
             this.telegramToolStripMenuItem.Text = "Telegram";
             // 
             // tikTokToolStripMenuItem
             // 
             this.tikTokToolStripMenuItem.Name = "tikTokToolStripMenuItem";
-            this.tikTokToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.tikTokToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
             this.tikTokToolStripMenuItem.Text = "TikTok";
             // 
             // discordToolStripMenuItem
             // 
             this.discordToolStripMenuItem.Name = "discordToolStripMenuItem";
-            this.discordToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.discordToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
             this.discordToolStripMenuItem.Text = "Discord";
             // 
             // snapchatToolStripMenuItem
             // 
             this.snapchatToolStripMenuItem.Name = "snapchatToolStripMenuItem";
-            this.snapchatToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.snapchatToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
             this.snapchatToolStripMenuItem.Text = "Snapchat";
+            // 
+            // statusStrip
+            // 
+            this.statusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip.Location = new System.Drawing.Point(0, 426);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(800, 24);
+            this.statusStrip.TabIndex = 3;
             // 
             // PRMDI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
@@ -194,6 +204,7 @@
         private System.Windows.Forms.ToolStripMenuItem pinTestToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem uplaodToolStripMenuItem;
+        private System.Windows.Forms.StatusStrip statusStrip;
     }
 }
 
