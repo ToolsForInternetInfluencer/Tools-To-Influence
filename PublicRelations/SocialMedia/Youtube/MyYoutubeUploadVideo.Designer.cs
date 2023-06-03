@@ -47,8 +47,15 @@
             this.label6 = new System.Windows.Forms.Label();
             this.errUploadYoutubeVideo = new System.Windows.Forms.ErrorProvider(this.components);
             this.uploadYoutubeStatus = new System.Windows.Forms.StatusStrip();
+            this.lsttag = new System.Windows.Forms.ListBox();
+            this.lblmovetolist = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblCategory = new System.Windows.Forms.Label();
+            this.lblPrivacystatus = new System.Windows.Forms.Label();
+            this.youtubeUploadStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errUploadYoutubeVideo)).BeginInit();
+            this.uploadYoutubeStatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -77,8 +84,10 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(636, 306);
             this.tableLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // label7
             // 
@@ -93,14 +102,11 @@
             // cbPrivacyStatus
             // 
             this.cbPrivacyStatus.FormattingEnabled = true;
-            this.cbPrivacyStatus.Items.AddRange(new object[] {
-            "private",
-            "public",
-            "unlisted"});
             this.cbPrivacyStatus.Location = new System.Drawing.Point(321, 211);
             this.cbPrivacyStatus.Name = "cbPrivacyStatus";
             this.cbPrivacyStatus.Size = new System.Drawing.Size(121, 24);
             this.cbPrivacyStatus.TabIndex = 9;
+            this.cbPrivacyStatus.Leave += new System.EventHandler(this.cbPrivacyStatus_Leave);
             // 
             // tbTags
             // 
@@ -181,6 +187,7 @@
             this.cbCategory.Name = "cbCategory";
             this.cbCategory.Size = new System.Drawing.Size(121, 24);
             this.cbCategory.TabIndex = 8;
+            this.cbCategory.Leave += new System.EventHandler(this.cbCategory_Leave);
             // 
             // btnBrowse
             // 
@@ -231,16 +238,75 @@
             // uploadYoutubeStatus
             // 
             this.uploadYoutubeStatus.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.uploadYoutubeStatus.Location = new System.Drawing.Point(0, 426);
+            this.uploadYoutubeStatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.youtubeUploadStatus});
+            this.uploadYoutubeStatus.Location = new System.Drawing.Point(0, 424);
             this.uploadYoutubeStatus.Name = "uploadYoutubeStatus";
-            this.uploadYoutubeStatus.Size = new System.Drawing.Size(800, 24);
+            this.uploadYoutubeStatus.Size = new System.Drawing.Size(800, 26);
             this.uploadYoutubeStatus.TabIndex = 4;
+            // 
+            // lsttag
+            // 
+            this.lsttag.FormattingEnabled = true;
+            this.lsttag.ItemHeight = 16;
+            this.lsttag.Location = new System.Drawing.Point(686, 100);
+            this.lsttag.Name = "lsttag";
+            this.lsttag.Size = new System.Drawing.Size(102, 244);
+            this.lsttag.TabIndex = 6;
+            // 
+            // lblmovetolist
+            // 
+            this.lblmovetolist.AutoSize = true;
+            this.lblmovetolist.Location = new System.Drawing.Point(600, 157);
+            this.lblmovetolist.Name = "lblmovetolist";
+            this.lblmovetolist.Size = new System.Drawing.Size(56, 16);
+            this.lblmovetolist.TabIndex = 7;
+            this.lblmovetolist.Text = ">>>>>>>";
+            this.lblmovetolist.Click += new System.EventHandler(this.lblmovetolist_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(0, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(44, 16);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "label8";
+            // 
+            // lblCategory
+            // 
+            this.lblCategory.AutoSize = true;
+            this.lblCategory.Location = new System.Drawing.Point(499, 211);
+            this.lblCategory.Name = "lblCategory";
+            this.lblCategory.Size = new System.Drawing.Size(0, 16);
+            this.lblCategory.TabIndex = 9;
+            this.lblCategory.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lblPrivacystatus
+            // 
+            this.lblPrivacystatus.AutoSize = true;
+            this.lblPrivacystatus.Location = new System.Drawing.Point(493, 262);
+            this.lblPrivacystatus.Name = "lblPrivacystatus";
+            this.lblPrivacystatus.Size = new System.Drawing.Size(0, 16);
+            this.lblPrivacystatus.TabIndex = 10;
+            this.lblPrivacystatus.Leave += new System.EventHandler(this.lblPrivacystatus_Leave);
+            // 
+            // youtubeUploadStatus
+            // 
+            this.youtubeUploadStatus.Name = "youtubeUploadStatus";
+            this.youtubeUploadStatus.Size = new System.Drawing.Size(151, 20);
+            this.youtubeUploadStatus.Text = "toolStripStatusLabel1";
             // 
             // MyYoutubeUploadVideo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblPrivacystatus);
+            this.Controls.Add(this.lblCategory);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.lblmovetolist);
+            this.Controls.Add(this.lsttag);
             this.Controls.Add(this.uploadYoutubeStatus);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnCancel);
@@ -252,6 +318,8 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errUploadYoutubeVideo)).EndInit();
+            this.uploadYoutubeStatus.ResumeLayout(false);
+            this.uploadYoutubeStatus.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,5 +345,11 @@
         private System.Windows.Forms.Button btnBrowse;
         private System.Windows.Forms.ErrorProvider errUploadYoutubeVideo;
         private System.Windows.Forms.StatusStrip uploadYoutubeStatus;
+        private System.Windows.Forms.ListBox lsttag;
+        private System.Windows.Forms.Label lblmovetolist;
+        private System.Windows.Forms.Label lblCategory;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblPrivacystatus;
+        private System.Windows.Forms.ToolStripStatusLabel youtubeUploadStatus;
     }
 }

@@ -22,19 +22,22 @@ using Google.Apis.YouTube.v3.Data;
 using PublicRelations.SocialMedia.Youtube.Utility;
 using System.Net.NetworkInformation;
 using System.Data.SqlClient;
+using Newtonsoft.Json.Linq;
 
 namespace PublicRelations.SocialMedia.Youtube
 {
     public partial class MyYoutubeUploadVideo : Form
     {
         bool isErrorOccured = false;
-        string connetionString;
+        string connetionString = @"Server=.\SqlExpress01; Database= SocialMedia; Integrated Security=True;";
         SqlConnection cnn;
         string settingJsonPath = "";
+        YoutubeUpload newtest = new YoutubeUpload();
         public MyYoutubeUploadVideo()
         {
             InitializeComponent();
-            connetionString = @"Server=.\SqlExpress01; Database= SocialMedia; Integrated Security=True;";
+           
+            youtubeUploadStatus.Text = "Youtube Upload Form loaded";
             cnn = new SqlConnection(connetionString);
             SqlCommand command = new SqlCommand("Select * from SocialSetting where SettingName=@SettingName", cnn);
             command.Parameters.AddWithValue("@SettingName", "YoutubeJsonPath");
@@ -56,30 +59,37 @@ namespace PublicRelations.SocialMedia.Youtube
         {
             try
             {
-                if (isErrorOccured) {
+                if (isErrorOccured)
+                {
                     return;
                 }
-                if (String.IsNullOrEmpty(filePathData)) {
+                if (String.IsNullOrEmpty(filePathData))
+                {
                     isErrorOccured = true;
                     errUploadYoutubeVideo.SetError(btnBrowse, "Description should not be left blank!");
                     return;
                 }
-                 Run().Wait();
+                Run().Wait();
             }
             catch (AggregateException ex)
             {
-                foreach (var error  in ex.InnerExceptions)
+                foreach (var error in ex.InnerExceptions)
                 {
                     uploadYoutubeStatus.Text = "Error " + error.Message;
                 }
+            }
+            finally {
+                
+                Run().Dispose();
             }
         }
         private async Task Run()
         {
             UserCredential credential;
+            uploadYoutubeStatus.Invoke((MethodInvoker)(() => uploadYoutubeStatus.Text = "Video  was successfully uploaded." ));
             //get from database
             //String ClinetJsonPath = "M:\\PR_TOOL_PROJECT\\SampleProjectForApi\\YoutubeSamples\\client_secrets.json.json";
-            Console.WriteLine(ClinetJsonPath);
+            Console.WriteLine(settingJsonPath);
 
             using (var stream = new FileStream(settingJsonPath, FileMode.Open, FileAccess.Read))
             {
@@ -102,10 +112,24 @@ namespace PublicRelations.SocialMedia.Youtube
             var video = new Video();
             video.Snippet = new VideoSnippet();
             //save this infomration  in database
+            newtest.Title = tbTitle.Text;
+            newtest.Description = tbDesc.Text;
+            newtest.Tags = tbTags.Text;
+            newtest.CategoryId = cbCategory.Text;
+            newtest.Privacy = cbPrivacyStatus.Text.ToString();
+
             video.Snippet.Title =  tbTitle.Text;
             video.Snippet.Description = tbDesc.Text;
-            video.Snippet.Tags = new string[] { "tag1", "tag2" };
-            video.Snippet.CategoryId = "22"; // See https://developers.google.com/youtube/v3/docs/videoCategories/list
+            // video.Snippet.Tags = new string[] { "tag1", "tag2" };
+            if (lsttag.Items.Count > 0)
+            { 
+                video.Snippet.Tags = lsttag.Items.Cast<string>().ToArray(); 
+            }
+            else {
+                video.Snippet.Tags = new string[] { "public Video" };
+            }
+            
+            video.Snippet.CategoryId = cbCategory.SelectedValue.ToString(); // See https://developers.google.com/youtube/v3/docs/videoCategories/list
             video.Status = new VideoStatus();
             video.Status.PrivacyStatus = cbPrivacyStatus.Text.ToString(); // or "private" or "public"
             var filePath = filePathData; // Replace with path to actual movie file.
@@ -115,8 +139,8 @@ namespace PublicRelations.SocialMedia.Youtube
                 var videosInsertRequest = youtubeService.Videos.Insert(video, "snippet,status", fileStream, "video/*");
                 videosInsertRequest.ProgressChanged += videosInsertRequest_ProgressChanged;
                 videosInsertRequest.ResponseReceived += videosInsertRequest_ResponseReceived;
-                //videosInsertRequest.Upload();
-               await videosInsertRequest.UploadAsync();
+               // videosInsertRequest.Upload();
+              await videosInsertRequest.UploadAsync();
             }
         }
 
@@ -125,19 +149,25 @@ namespace PublicRelations.SocialMedia.Youtube
             switch (progress.Status)
             {
                 case UploadStatus.Uploading:
-                    uploadYoutubeStatus.Text = " bytes sent." + progress.BytesSent;
+                    youtubeUploadStatus.Text = " bytes sent." + progress.BytesSent;
+                    
                     break;
 
                 case UploadStatus.Failed:
-                    uploadYoutubeStatus.Text = "An error prevented the upload from completing.\n" + progress.Exception;
+
+                    youtubeUploadStatus.Text = "An error prevented the upload from completing.\n" + progress.Exception;
+                    insertData(youtubeUploadStatus.Text, "0", "Failed");
                     break;
             }
         }
 
         void videosInsertRequest_ResponseReceived(Video video)
         {
-             
-            uploadYoutubeStatus.Text = "Video  was successfully uploaded." + video.Id.ToString(); 
+            String videoId = video.Id.ToString();
+            //  uploadYoutubeStatus.Invoke((MethodInvoker)(() => uploadYoutubeStatus.Text = "Video  was successfully uploaded." + videoId));
+            youtubeUploadStatus.Text = "Video  was successfully uploaded." + videoId;
+            
+            insertData("Sucess", "1", video.Id.ToString());
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)
@@ -158,6 +188,9 @@ namespace PublicRelations.SocialMedia.Youtube
             cbCategory.DataSource = YoutubeCategory.CatgoryList();
             cbCategory.ValueMember = "Id";
             cbCategory.DisplayMember = "Name";
+            cbPrivacyStatus.DataSource = YoutubeCategory.PrivacyStatusList();
+            cbPrivacyStatus.ValueMember = "Value";
+            cbPrivacyStatus.DisplayMember = "Name";
         }
 
         private void txtInputValidation(object sender, EventArgs e)
@@ -214,6 +247,81 @@ namespace PublicRelations.SocialMedia.Youtube
              
         }
 
-         
+        private void insertData(String message, String sucessstatus, String videoLink) {
+            try
+            {
+                string query = "INSERT INTO YoutubeUpload (Title, Description, Tags,CategoryId,CreatedDate,UpdatedDate,Videolink,SucessUploaded,Message,LocalVideoPath,Privacy)" +
+                    " VALUES(@Title, @Description, @Tags,@CategoryId,@CreatedDate,@UpdatedDate,@Videolink,@SucessUploaded,@Message,@LocalVideoPath,@Privacy)";
+                cnn = new SqlConnection(connetionString);
+                cnn.Open();
+                SqlCommand cmd = new SqlCommand(query, cnn);
+             
+                newtest.Title = tbTitle.Text;
+                newtest.Description = tbDesc.Text;
+                newtest.Tags = tbTags.Text;
+                newtest.CategoryId = lblCategory.Text;
+                newtest.Privacy = lblPrivacystatus.Text;  
+                cmd.Parameters.AddWithValue("@Title", newtest.Title);
+                cmd.Parameters.AddWithValue("@Description", newtest.Description);
+
+               
+                if (lsttag.Items.Count > 0)
+                {
+                    List<String>  tagValue = lsttag.Items.Cast<string>().ToList();
+                    StringBuilder strValue = new StringBuilder();   
+                    for (int i = 0; i < tagValue.Count; i++)
+                    {
+                        strValue.Append(tagValue[i]);
+                    }
+
+
+                        cmd.Parameters.AddWithValue("@Tags", strValue.ToString());
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@Tags", "public Video");
+                }
+                cmd.Parameters.AddWithValue("@CategoryId", newtest.CategoryId);
+                cmd.Parameters.AddWithValue("@CreatedDate", DateTime.Now);
+                cmd.Parameters.AddWithValue("@UpdatedDate", DateTime.Now);
+                cmd.Parameters.AddWithValue("@Videolink", videoLink);
+                cmd.Parameters.AddWithValue("@SucessUploaded", sucessstatus);
+                cmd.Parameters.AddWithValue("@Message", message);
+                cmd.Parameters.AddWithValue("@LocalVideoPath", filePathData);
+                cmd.Parameters.AddWithValue("@Privacy", newtest.Privacy);
+                
+                cmd.ExecuteNonQuery();  
+            }
+            finally { cnn.Close(); }    
+
+
+        }
+
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lblmovetolist_Click(object sender, EventArgs e)
+        {
+            lsttag.Items.Add(tbTags.Text);
+        }
+
+        private void cbCategory_Leave(object sender, EventArgs e)
+        {
+            lblCategory.Text = cbCategory.SelectedValue.ToString();
+        }
+
+        private void lblPrivacystatus_Leave(object sender, EventArgs e)
+        {
+            lblPrivacystatus.Text = cbPrivacyStatus.SelectedValue.ToString();
+        }
+
+        private void cbPrivacyStatus_Leave(object sender, EventArgs e)
+        {
+            lblPrivacystatus.Text = cbPrivacyStatus.SelectedValue.ToString();
+        }
     }
+    
 }
