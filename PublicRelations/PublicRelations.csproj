@@ -108,6 +108,12 @@
     <Compile Include="SocialMedia\Youtube\CreateMyYoutubePlayListcs.Designer.cs">
       <DependentUpon>CreateMyYoutubePlayListcs.cs</DependentUpon>
     </Compile>
+    <Compile Include="SocialMedia\Youtube\MyYoutubeUpdateUpload.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SocialMedia\Youtube\MyYoutubeUpdateUpload.Designer.cs">
+      <DependentUpon>MyYoutubeUpdateUpload.cs</DependentUpon>
+    </Compile>
     <Compile Include="SocialMedia\Youtube\MyYoutubeUploaded.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SocialMedia\Youtube\CreateMyYoutubePlayListcs.resx">
       <DependentUpon>CreateMyYoutubePlayListcs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SocialMedia\Youtube\MyYoutubeUpdateUpload.resx">
+      <DependentUpon>MyYoutubeUpdateUpload.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SocialMedia\Youtube\MyYoutubeUploaded.resx">
       <DependentUpon>MyYoutubeUploaded.cs</DependentUpon>

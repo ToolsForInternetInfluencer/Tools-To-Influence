@@ -69,6 +69,7 @@ namespace PublicRelations.SocialMedia.Youtube
                     errUploadYoutubeVideo.SetError(btnBrowse, "Description should not be left blank!");
                     return;
                 }
+               
                 Run().Wait();
             }
             catch (AggregateException ex)
@@ -79,8 +80,10 @@ namespace PublicRelations.SocialMedia.Youtube
                 }
             }
             finally {
+              
+               
                 
-                Run().Dispose();
+                this.Close();
             }
         }
         private async Task Run()
@@ -139,8 +142,9 @@ namespace PublicRelations.SocialMedia.Youtube
                 var videosInsertRequest = youtubeService.Videos.Insert(video, "snippet,status", fileStream, "video/*");
                 videosInsertRequest.ProgressChanged += videosInsertRequest_ProgressChanged;
                 videosInsertRequest.ResponseReceived += videosInsertRequest_ResponseReceived;
-               // videosInsertRequest.Upload();
-              await videosInsertRequest.UploadAsync();
+                // videosInsertRequest.Upload();
+               
+               await videosInsertRequest.UploadAsync();
             }
         }
 
@@ -290,9 +294,17 @@ namespace PublicRelations.SocialMedia.Youtube
                 cmd.Parameters.AddWithValue("@LocalVideoPath", filePathData);
                 cmd.Parameters.AddWithValue("@Privacy", newtest.Privacy);
                 
-                cmd.ExecuteNonQuery();  
+                cmd.ExecuteNonQuery();
+                MyYoutubeUploaded myyoutubeUplaod = new MyYoutubeUploaded();
+                myyoutubeUplaod.Show();
             }
-            finally { cnn.Close(); }    
+            finally {
+                MyYoutubeUploaded myyoutubeUplaod  = new MyYoutubeUploaded();
+                myyoutubeUplaod.Show();
+
+                cnn.Close(); 
+
+            }    
 
 
         }

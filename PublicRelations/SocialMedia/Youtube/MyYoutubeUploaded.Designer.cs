@@ -28,20 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.youtubeUploadedData = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.ModifyRecord = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.youtubeUploadedData)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // youtubeUploadedData
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(87, 68);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(500, 211);
-            this.dataGridView1.TabIndex = 0;
+            this.youtubeUploadedData.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.youtubeUploadedData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.youtubeUploadedData.Location = new System.Drawing.Point(87, 68);
+            this.youtubeUploadedData.Name = "youtubeUploadedData";
+            this.youtubeUploadedData.RowHeadersWidth = 51;
+            this.youtubeUploadedData.RowTemplate.Height = 24;
+            this.youtubeUploadedData.Size = new System.Drawing.Size(500, 211);
+            this.youtubeUploadedData.TabIndex = 0;
             // 
             // label6
             // 
@@ -53,16 +55,28 @@
             this.label6.TabIndex = 4;
             this.label6.Text = "My Youtube Uploads";
             // 
+            // ModifyRecord
+            // 
+            this.ModifyRecord.Location = new System.Drawing.Point(87, 314);
+            this.ModifyRecord.Name = "ModifyRecord";
+            this.ModifyRecord.Size = new System.Drawing.Size(75, 23);
+            this.ModifyRecord.TabIndex = 5;
+            this.ModifyRecord.Text = "Modify";
+            this.ModifyRecord.UseVisualStyleBackColor = true;
+            this.ModifyRecord.Click += new System.EventHandler(this.ModifyRecord_Click);
+            // 
             // MyYoutubeUploaded
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ModifyRecord);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.youtubeUploadedData);
             this.Name = "MyYoutubeUploaded";
             this.Text = "My Youtube Upload";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.MyYoutubeUploaded_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.youtubeUploadedData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -70,7 +84,8 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView youtubeUploadedData;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button ModifyRecord;
     }
 }

@@ -47,3 +47,4 @@ M:\PR_TOOL_PROJECT\PublicRelations\bin\Debug\Microsoft.Practices.EnterpriseLibra
 M:\PR_TOOL_PROJECT\PublicRelations\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
 M:\PR_TOOL_PROJECT\PublicRelations\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
 M:\PR_TOOL_PROJECT\PublicRelations\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+M:\PR_TOOL_PROJECT\PublicRelations\obj\Debug\PublicRelations.SocialMedia.Youtube.MyYoutubeUpdateUpload.resources
